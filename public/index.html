@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SchoolHub</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="auth-view" class="auth-view hidden">
+      <div class="auth-card">
+        <div class="brand">
+          <div class="brand-badge">S</div>
+          <h1>SchoolHub</h1>
+          <p>Stay connected with your school community.</p>
+        </div>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-tab="login">Log in</button>
+          <button class="tab-btn" data-tab="register">Sign up</button>
+        </div>
+        <form id="login-form">
+          <label for="login-username">Username</label>
+          <input id="login-username" type="text" autocomplete="username" required />
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" autocomplete="current-password" required />
+          <button type="submit" class="btn primary">Log in</button>
+          <p class="demo-hint">Demo accounts: <code>alex</code>, <code>mia</code>, <code>ms.chan</code> — password <code>password123</code></p>
+        </form>
+        <form id="register-form" class="hidden">
+          <label for="reg-fullname">Full name</label>
+          <input id="reg-fullname" type="text" required />
+          <label for="reg-username">Username</label>
+          <input id="reg-username" type="text" required />
+          <label for="reg-email">School email</label>
+          <input id="reg-email" type="email" required />
+          <label for="reg-role">Role</label>
+          <select id="reg-role">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="staff">Staff</option>
+          </select>
+          <label for="reg-password">Password (8+ characters)</label>
+          <input id="reg-password" type="password" autocomplete="new-password" required />
+          <button type="submit" class="btn primary">Create account</button>
+        </form>
+        <p id="auth-error" class="error hidden"></p>
+      </div>
+    </section>
+
+    <section id="main-view" class="main-view hidden">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand brand-row">
+            <div class="brand-badge small">S</div>
+            <span>SchoolHub</span>
+          </div>
+          <div class="topbar-right">
+            <span id="welcome" class="welcome"></span>
+            <span id="user-role" class="role-badge"></span>
+            <button id="logout-btn" class="btn ghost">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="feed">
+        <div class="composer card">
+          <textarea id="post-input" maxlength="500" placeholder="Share something with your school…"></textarea>
+          <div class="composer-footer">
+            <span id="post-char-count" class="char-count">0/500</span>
+            <button id="post-submit" class="btn primary">Post</button>
+          </div>
+        </div>
+        <div id="feed" class="feed-list"></div>
+        <p id="feed-empty" class="empty hidden">No posts yet. Be the first to share!</p>
+      </main>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
